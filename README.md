@@ -1,21 +1,17 @@
 # EA_API_call
-Call river quality data using EA API. Basic descriptive statistics. 
+Call river quality data using EA API, present timeseries graphs and basic descriptive statistics. 
 
 
 [EA Water Quality Archive Documetation](https://environment.data.gov.uk/water-quality/view/doc/reference)
 
 
-Title
+API call for EA river water quality data
 
-Desciption of technology used, and why
+Using EA API code to extract river water quality data for 
 
-Description of the process, and why
+As in comments, uses a single location code, and iterates through years to concatenate a longer dataset. This is due DEFRA datacall soft limit at 50 rows. 
 
-Table of contents
+Code created to support river quality data projects for research and study. 
 
-How the project came about, and motivation behind it
-
-Limitations or challenges
-
-Problem it intends to solve, what it's intended use is
+Listed here for sharing with external collaborators. 
 
