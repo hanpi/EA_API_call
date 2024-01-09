@@ -40,3 +40,30 @@ for y in range(2001,2024):
 
 #print(df_AN_Woodbri.head(1))
 #print(df_AN_Woodbri.tail(1))
+
+# Filter df to acquire columns of interest
+df_Woodbridge_filtered = df_AN_Woodbri[['result', 'determinand.definition',
+       'determinand.label',
+       'determinand.unit.label',
+       'sample.sampleDateTime']]
+print(df_Woodbridge_filtered.head())
+df_Woodbridge_filtered.tail()
+
+# convert datetime column to datetime datatype
+df_Woodbridge_filtered['sample.sampleDateTime'] = pd.to_datetime(df_Woodbridge_filtered['sample.sampleDateTime'])
+df_Woodbridge_filtered.dtypes
+
+
+# create a list of determinands
+determinands = df_Woodbridge_filtered['determinand.definition'].unique()
+print(determinands)
+
+print(f"There are {len(df_Woodbridge_filtered['determinand.label'].unique())} determinands")
+print(f"There are {len(df_Woodbridge_filtered['sample.sampleDateTime'].unique())} samples")
+
+# iterate over determinands to create graphs
+for determinand in determinands:
+  plt.plot(df_Woodbridge_filtered['sample.sampleDateTime'][df_Woodbridge_filtered['determinand.definition']==determinand],df_Woodbridge_filtered['result'][df_Woodbridge_filtered['determinand.definition']==determinand])
+  plt.ylabel(determinand)
+  plt.show()
+
